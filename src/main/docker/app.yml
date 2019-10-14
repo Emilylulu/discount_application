@@ -1,0 +1,16 @@
+version: '2'
+services:
+  discount_application-app:
+    image: discount_application
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://discount_application-mysql:3306/discount_application?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 8080:8080
+  discount_application-mysql:
+    extends:
+      file: mysql.yml
+      service: discount_application-mysql
