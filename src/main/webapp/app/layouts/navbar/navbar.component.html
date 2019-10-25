@@ -1,11 +1,44 @@
 <nav class="navbar navbar-dark navbar-expand-md bg-dark">
-    <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
-        <span class="logo-img"></span>
-        <span class="navbar-title">Discount_Application</span> <span class="navbar-version">{{version}}</span>
-    </a>
-    <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
-        <fa-icon icon="bars"></fa-icon>
-    </a>
+    <div class="ui menu">
+        <div class="header item">
+            Web Application
+        </div>
+        <a class="item" routerLink="/" routerLinkActive="active">
+            Home
+        </a>
+        <a class="item" routerLink="/cloth" routerLinkActive="active">
+            Clothes
+        </a>
+        <a class="item" routerLink="/book" routerLinkActive="active">
+            Books
+        </a>
+        <a class="item" routerLink="/purse" routerLinkActive="active">
+            Purse
+        </a>
+        <a class="item" routerLink="/game" routerLinkActive="active">
+            Game
+        </a>
+        <a class="item" routerLink="/toy" routerLinkActive="active">
+            Toy
+        </a>
+        <a class="item" routerLink="/jewelry" routerLinkActive="active">
+            Jewelry
+        </a>
+        <div class="right item">
+
+
+            <div class="ui action input">
+                <input type="text" placeholder="Navigate to...">
+                <div class="ui button">Go</div>
+            </div>
+            <div class="ui left attached button" tabindex="0" style="height:35px; margin-left: 10px">
+                <!--<div class="hidden content">Shop</div>-->
+                <div class="visible content">
+                    <i class="shop icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
