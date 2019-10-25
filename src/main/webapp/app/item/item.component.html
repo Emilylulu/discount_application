@@ -1,1 +1,321 @@
-<p>item works!</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"></script>
+
+<br>
+
+<div class="ui container">
+    <div class="ui two column doubling stackable grid container">
+        <div class="column">
+            <img class="ui large image" src={{list.imgUrl}} alt="First slide" >
+
+        </div>
+        <div class="column">
+            <div class="content">
+
+                <h2>{{list.title}}</h2>
+                <div class="ui star rating"></div>
+
+                <p class="price">original price $59.99</p>
+                <div>
+                    <h3 class="ui red header">
+                        <div class="ui red tag large label">Our choice</div>
+                        price ${{list.price}}
+
+                    </h3>
+
+                </div>
+
+
+
+                <ol class="ui list">
+                    <li value="*" >Brand</li>
+                    <p >{{list.brand}}</p>
+                    <li value="*">Materials</li>
+                    <ol>
+                        <li value="-">---</li>
+                        <li value="-">---</li>
+                        <li value="-">---</li>
+                    </ol>
+
+                </ol>
+
+                <div class="ui divided selection list">
+                    <!-- <a class="item">
+                      <div class="ui red tag large label">Our choice</div>
+                      Amazon
+                    </a> -->
+                    <a class="item">
+                        <h4 class="ui orange header">
+                            <div class="ui orange tag label">Other choice</div>
+                            $52.99 From Walmart
+
+                        </h4>
+
+
+
+                    </a>
+                    <a class="item">
+                        <h4 class="ui orange header">
+                            <div class="ui orange tag label">Other choice</div>
+                            $59.99 From Lego.com
+
+                        </h4>
+                    </a>
+
+                </div>
+
+
+                <div class="ui animated button" tabindex="0">
+                    <div class="hidden content">Notify</div>
+                    <div class="visible content">
+                        <i class="envelope icon"></i>
+                    </div>
+                </div>
+
+
+                <div class="ui animated button" tabindex="0">
+                    <div class="hidden content">Save</div>
+                    <div class="visible content">
+                        <i class="heart icon"></i>
+                    </div>
+                </div>
+                <div class="ui animated blue button" tabindex="0">
+                    <div class="hidden content">Shop</div>
+                    <div class="visible content">
+                        <i class="shop icon"></i>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <br>
+            <p>share with:</p>
+            <button class="ui circular facebook icon button">
+                <i class="facebook icon"></i>
+            </button>
+            <button class="ui circular twitter icon button">
+                <i class="twitter icon"></i>
+            </button>
+            <button class="ui circular linkedin icon button">
+                <i class="linkedin icon"></i>
+            </button>
+            <button class="ui circular google plus icon button">
+                <i class="google plus icon"></i>
+            </button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="ui tabular menu">
+        <a class="item active" data-tab="first">Description</a>
+        <a class="item" data-tab="second">Review</a>
+        <a class="item" data-tab="third">Information</a>
+    </div>
+    <div class="ui bottom attached tab segment active" data-tab="first">
+        <p>{{list.description}}</p>
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="second">
+        <div class="ui comments" *ngFor="let reviews of reviewList;">
+            <div class="comment" *ngFor="let review of reviews;">
+                <a class="avatar">
+                    <img src="/assets/image/matthew.png">
+                </a>
+                <div class="content">
+                    <a class="author">{{review.reviewerName}}</a>
+                    <div class="metadata">
+                        <div class="date">{{review.reviewTime}}</div>
+                    </div>
+                    <div class="ui star rating" data-rating="3"></div>
+
+                    <div class="text">
+                        <p>{{review.reviewText}}</p>
+                        <div class="actions">
+                            <a class="reply">Reply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <form class="ui reply form">
+            <div class="field">
+                <textarea></textarea>
+            </div>
+
+
+
+            <div class="ui primary submit labeled icon button">
+                <i class="icon edit"></i> Add Comment
+            </div>
+        </form>
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="third">
+
+        <ul class="ui list">
+            <li>Includes train driver and child LEGO® DUPLO® figures, plus a squirrel figure.</li>
+            <li>Features a buildable Push & Go locomotive with lights and sounds, passenger carriage, 5 color-coded action bricks, train station, coal tipper, tree and 16 pieces of track.
+                Accessory elements include a refueling can, suitcase, bread and a spade.</li>
+            <li>Steam train with passenger car measures over 3” (10cm) high, 11” (30cm) long and 2” (7cm) wide.
+                Station measures over 5” (15cm) high, 4” (12cm) wide and 2” (6cm) deep.</li>
+            <li>Benefits
+                <ul>
+                    <li>
+                        Any toddler can start the steam train with a gentle push forwards or backwards, and stop it by placing their hand firmly on top of the engine.
+                        Show your child how to place and move the 5 colored action bricks around the track so the train follows their instructions to sound the horn, turn on the lights, refuel, change direction or stop.</li>
+                    <li>Develop imagination and early role-play skills using the LEGO® DUPLO® figures to create endless journeys and adventures.</li>
+                    <li>Extend the play possibilities of this LEGO® DUPLO® set by downloading the free app with remote-control function and fun activities for young children to complete.
+                        The train and tracks included in this set are compatible with your child’s existing LEGO® DUPLO® train collection.</li>
+                </ul>
+            </li>
+            <li>Download the optional app at the App Store, Google Play Store or Amazon Kindle Store. Learn more at LEGO.com/devicecheck.</li>
+        </ul>
+
+
+
+
+
+        LEGO® DUPLO® products are specially designed to be fun and easy for little hands.
+        This product requires batteries (not included). Please refer to the product packaging for type and quantity.
+        Combine with the 10872 Train Bridge and Tracks, 10875 Cargo Train and 10882 Train Tracks for even more track combinations and LEGO® DUPLO® train fun.
+
+    </div>
+
+    <h2 class="ui orange header">Others you may like...</h2>
+    <div class="card-deck">
+        <!-- Card -->
+        <mdb-card>
+            <div class="view overlay waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="assets/image/others1.png" alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h4>Farm Pony</h4>
+                </mdb-card-title>
+
+                <!--Text-->
+                <mdb-card-text> Play out real-life scenarios in LEGO® DUPLO® Town: a recognizable world with modern DUPLO figures.
+                </mdb-card-text>
+
+                <a href="#" mdbBtn color="primary" mdbWavesEffect>$29.99</a>
+            </mdb-card-body>
+        </mdb-card>
+
+        <!-- Card -->
+        <mdb-card>
+            <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="assets/image/others2.png" alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h4>Playground</h4>
+                </mdb-card-title>
+
+                <!--Text-->
+                <mdb-card-text> Fire your toddler’s imagination with this exciting Box, to make an adventure playground full of fun features.
+                </mdb-card-text>
+
+                <a href="#" mdbBtn color="primary" mdbWavesEffect>$49.99</a>
+            </mdb-card-body>
+        </mdb-card>
+
+        <!-- Card -->
+        <mdb-card>
+            <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="assets/image/others5.png" alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h4>Farm Pony</h4>
+                </mdb-card-title>
+
+                <!--Text-->
+                <mdb-card-text> Play out real-life scenarios in LEGO® DUPLO® Town: a recognizable world with modern DUPLO figures.
+                </mdb-card-text>
+
+                <a href="#" mdbBtn color="primary" mdbWavesEffect>$29.99</a>
+            </mdb-card-body>
+        </mdb-card>
+
+
+        <!-- Card -->
+        <mdb-card>
+            <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="assets/image/others4.png" alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h4>Big Construction Site</h4>
+                </mdb-card-title>
+
+                <!--Text-->
+                <mdb-card-text> Little construction workers will love these 3 buildable machines. Clear the site with the tracked bulldozer, before tipping new building supplies from the truck.
+                </mdb-card-text>
+
+                <a href="#" mdbBtn color="primary" mdbWavesEffect>$49.99</a>
+            </mdb-card-body>
+        </mdb-card>
+
+        <!-- Card -->
+        <mdb-card>
+            <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="assets/image/others3.png" alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h4>Family House</h4>
+                </mdb-card-title>
+
+                <!--Text-->
+                <mdb-card-text> Play out real-life scenarios in LEGO® DUPLO® My Town: a recognizable world with modern DUPLO figures.
+                </mdb-card-text>
+
+                <a href="#" mdbBtn color="primary" mdbWavesEffect>$39.99</a>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+
+
+</div>
+
+
+

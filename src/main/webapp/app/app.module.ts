@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import './vendor';
 import { DiscountApplicationSharedModule } from './shared/shared.module';
@@ -23,16 +24,6 @@ import { ToyComponent } from './toy/toy.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    DiscountApplicationSharedModule,
-    DiscountApplicationCoreModule,
-    DiscountApplicationHomeModule,
-    // jhipster-needle-angular-add-module JHipster will add new module here
-    DiscountApplicationEntityModule,
-    DiscountApplicationAppRoutingModule,
-    NgbModule
-  ],
   declarations: [
     JhiMainComponent,
     NavbarComponent,
@@ -46,6 +37,17 @@ import { JewelryComponent } from './jewelry/jewelry.component';
     PurseComponent,
     ToyComponent,
     JewelryComponent
+  ],
+  imports: [
+    BrowserModule,
+    DiscountApplicationSharedModule,
+    DiscountApplicationCoreModule,
+    DiscountApplicationHomeModule,
+    // jhipster-needle-angular-add-module JHipster will add new module here
+    DiscountApplicationEntityModule,
+    DiscountApplicationAppRoutingModule,
+    NgbModule,
+    MDBBootstrapModule.forRoot()
   ],
   bootstrap: [JhiMainComponent]
 })
