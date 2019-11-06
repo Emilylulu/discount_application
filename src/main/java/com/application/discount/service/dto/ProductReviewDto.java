@@ -11,4 +11,13 @@ public class ProductReviewDto {
     private String reviewText;
     private String reviewerName;
     private String reviewTime;
+
+    public ProductReviewDto(ProductReviewDto productReviewDto) {
+        this.itemId = productReviewDto.getItemId();
+        this.reviewerID = productReviewDto.getReviewerID();
+        this.reviewText = productReviewDto.getReviewText();
+        this.reviewerName = productReviewDto.getReviewerName();
+        this.reviewTime = productReviewDto.getReviewTime();
+    }
+
 }
