@@ -5,8 +5,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgJhipsterModule } from 'ng-jhipster';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  exports: [FormsModule, CommonModule, NgbModule, NgJhipsterModule, InfiniteScrollModule, FontAwesomeModule, ReactiveFormsModule]
+  exports: [
+    FormsModule,
+    CommonModule,
+    NgbModule,
+    NgJhipsterModule,
+    InfiniteScrollModule,
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    MatCardModule
+  ]
 })
 export class DiscountApplicationSharedLibsModule {}

@@ -6,14 +6,14 @@
 <div class="ui container">
     <div class="ui two column doubling stackable grid container">
         <div class="column">
-            <img class="ui image" src={{list.imgUrl}} alt="First slide" >
+            <img class="ui medium image" src={{list.imgUrl}} alt="First slide" >
 
         </div>
         <div class="column">
             <div class="content">
 
                 <h2>{{list.title}}</h2>
-                <ngb-rating [rate]="3"></ngb-rating>
+                <ngb-rating [rate]="5"></ngb-rating>
 
                 <p class="price">original price $59.99</p>
                 <div>
@@ -43,8 +43,19 @@
                     </div>
                 </div>
 
+                <!--<mat-form-field>-->
+                    <!--<mat-label>Select an option</mat-label>-->
+                    <!--<mat-select [(value)]="selected">-->
+                        <!--<mat-option>None</mat-option>-->
+                        <!--<mat-option value="option1">option 1</mat-option>-->
+                        <!--<mat-option value="option2">option 2</mat-option>-->
+                        <!--<mat-option value="option3">option 3</mat-option>-->
+                    <!--</mat-select>-->
+                <!--</mat-form-field>-->
 
-<br>
+
+
+                <br>
                 <div class="ui animated button" tabindex="0">
                     <div class="hidden content">Notify</div>
                     <div class="visible content">
@@ -95,6 +106,11 @@
 
 
     <ngb-tabset>
+        <ngb-tab>
+            <ng-template ngbTabTitle><b>Description</b></ng-template>
+            <ng-template ngbTabContent>{{list.description}}</p>
+            </ng-template>
+        </ngb-tab>
         <ngb-tab title="Reviews">
             <ng-template ngbTabContent>
 
@@ -142,28 +158,83 @@
 
 
     <h2><em>Others you may like...</em></h2>
-    <!--<div>-->
-    <!--<mat-card class="example-card">-->
-        <!--<mat-card-header>-->
+
+    <div id="card-container">
+    <mat-card class="example-card" role="group">
+        <mat-card-header>
             <!--<div mat-card-avatar class="example-header-image"></div>-->
-            <!--<mat-card-title>Shiba Inu</mat-card-title>-->
-            <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
-        <!--</mat-card-header>-->
-        <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-        <!--<mat-card-content>-->
-            <!--<p>-->
+            <!--<mat-card-title>{{list.title}}</mat-card-title>-->
+            <!--<mat-card-subtitle>{{list.price}}</mat-card-subtitle>-->
+        </mat-card-header>
+        <img mat-card-lg-image src={{list.imgUrl}} alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>
                 <!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
                 <!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
                 <!--bred for hunting.-->
-            <!--</p>-->
-        <!--</mat-card-content>-->
-        <!--<mat-card-actions>-->
-            <!--<button mat-button>LIKE</button>-->
-            <!--<button mat-button>SHARE</button>-->
-        <!--</mat-card-actions>-->
-    <!--</mat-card>-->
-    <!--</div>-->
+                <mat-card-title>{{list.title}}</mat-card-title>
+                <mat-card-subtitle>{{list.price}}</mat-card-subtitle>
 
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+
+
+    </mat-card>
+
+        <mat-card class="example-card" role="group">
+            <mat-card-header>
+                <!--<div mat-card-avatar class="example-header-image"></div>-->
+                <!--<mat-card-title>{{list.title}}</mat-card-title>-->
+                <!--<mat-card-subtitle>{{list.price}}</mat-card-subtitle>-->
+            </mat-card-header>
+            <img mat-card-lg-image src={{list.imgUrl}} alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    <!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+                    <!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
+                    <!--bred for hunting.-->
+                    <mat-card-title>{{list.title}}</mat-card-title>
+                    <mat-card-subtitle>{{list.price}}</mat-card-subtitle>
+
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+
+
+        </mat-card>
+
+        <mat-card class="example-card" role="group">
+            <mat-card-header>
+                <!--<div mat-card-avatar class="example-header-image"></div>-->
+                <!--<mat-card-title>{{list.title}}</mat-card-title>-->
+                <!--<mat-card-subtitle>{{list.price}}</mat-card-subtitle>-->
+            </mat-card-header>
+            <img mat-card-lg-image src={{list.imgUrl}} alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    <!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+                    <!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
+                    <!--bred for hunting.-->
+                    <mat-card-title>{{list.title}}</mat-card-title>
+                    <mat-card-subtitle>{{list.price}}</mat-card-subtitle>
+
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+
+
+        </mat-card>
+    </div>
 
 
 
