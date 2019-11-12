@@ -32,6 +32,9 @@ export class ItemComponent implements OnInit {
   pageSize = 3;
   contentSize;
   results = [];
+  originalPrice;
+  descriptonList = [];
+  totalDes = [];
 
   private routeSub: Subscription;
   constructor(private router: ActivatedRoute, private config: NgbRatingConfig, private carouse: NgbCarouselConfig) {
@@ -60,6 +63,9 @@ export class ItemComponent implements OnInit {
       //console.table(`Error connecting with server: ${e}`);
       console.log('error');
     }
+    this.originalPrice = (parseFloat(this.list['price']) + Math.random() * 10).toFixed(2);
+    this.descriptonList = this.list['description'].split('.', 2).filter(Boolean);
+    this.totalDes = this.list['description'].split('.').filter(Boolean);
 
     try {
       const review = await axios.get(endpoints.REVIEW + id);

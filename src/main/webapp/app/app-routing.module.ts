@@ -13,6 +13,7 @@ import { BookComponent } from './book/book.component';
 import { PurseComponent } from './purse/purse.component';
 import { ToyComponent } from './toy/toy.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -59,6 +60,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         {
           path: 'jewelry',
           component: JewelryComponent
+        },
+        {
+          path: 'search/:searchKey',
+          component: SearchPageComponent
         },
         ...LAYOUT_ROUTES
       ],

@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   swaggerEnabled: boolean;
   modalRef: NgbModalRef;
   version: string;
+  searchKey: string;
 
   constructor(
     private loginService: LoginService,
@@ -62,5 +63,8 @@ export class NavbarComponent implements OnInit {
 
   getImageUrl() {
     return this.isAuthenticated() ? this.accountService.getImageUrl() : null;
+  }
+  searchRequest(searchKey) {
+    this.router.navigate(['./search', this.searchKey]);
   }
 }

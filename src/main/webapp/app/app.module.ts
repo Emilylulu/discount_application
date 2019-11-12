@@ -22,6 +22,7 @@ import { BookComponent } from './book/book.component';
 import { PurseComponent } from './purse/purse.component';
 import { ToyComponent } from './toy/toy.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { JewelryComponent } from './jewelry/jewelry.component';
     BookComponent,
     PurseComponent,
     ToyComponent,
-    JewelryComponent
+    JewelryComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,

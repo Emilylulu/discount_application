@@ -12,24 +12,31 @@
         <div class="column">
             <div class="content">
 
-                <h2>{{list.title}}</h2>
+                <h2><strong>{{list.title}}</strong></h2>
                 <ngb-rating [rate]="5"></ngb-rating>
 
-                <p class="price">original price $59.99</p>
+                <p class="price">list price: <del>${{originalPrice}}</del>
+                <br>
+                    <span class="nowprice"><em><strong>Now:${{list.price}}</strong></em><span>
+                </p>
+                <p></p>
+
                 <div>
                     <!--<h3> <strong> Our Choice </strong></h3>>-->
                         <!--<div class="ui red tag large label">Our choice</div>-->
-                        <p>Now ${{list.price}}</p>
 
                 </div>
 
 
 
-                <ol class="ui list">
-                    <li value="*" >Brand</li>
-                    <p >{{list.brand}}</p>
-                    <li value="*">description</li>
-                    <p>{{list.description}}</p>
+                <ol class="ui_list">
+                    <li class="list" value="*" >Brand</li>
+                    <p class="brand">{{list.brand}}</p>
+                    <li class="list" value="*">Description</li>
+                        <ul class="deslist" *ngFor="let dlist of descriptonList">
+
+                        <li>{{dlist}}</li>
+                        </ul>
 
                 </ol>
 
@@ -108,7 +115,11 @@
     <ngb-tabset>
         <ngb-tab>
             <ng-template ngbTabTitle><b>Description</b></ng-template>
-            <ng-template ngbTabContent>{{list.description}}</p>
+            <ng-template ngbTabContent>
+                <ul class="totdes" *ngFor="let tlist of totalDes">
+
+                    <li>{{tlist}}</li>
+                </ul>
             </ng-template>
         </ngb-tab>
         <ngb-tab title="Reviews">
@@ -157,7 +168,7 @@
     </ngb-tabset>
 
 
-    <h2><em>Others you may like...</em></h2>
+    <h2 class="youlike">Others you may like...</h2>
 
     <div id="card-container">
     <mat-card class="example-card" role="group">

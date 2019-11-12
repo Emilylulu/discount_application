@@ -28,8 +28,8 @@
 
 
             <div class="ui action input">
-                <input type="text" placeholder="Navigate to...">
-                <div class="ui button">Go</div>
+                <input [(ngModel)]="searchKey" type="text" placeholder="Navigate to...">
+                <button class="ui button" type="submit" (click)="searchRequest(searchKey)">Go</button>
             </div>
             <div class="ui left attached button" tabindex="0" style="height:35px; margin-left: 10px">
                 <!--<div class="hidden content">Shop</div>-->

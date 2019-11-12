@@ -1,7 +1,17 @@
 //@import "";
-
+#h2 {
+  color: darkslategrey;
+}
 .tabular.menu {
   background-color: burlywood;
+}
+.price {
+  color: dimgrey;
+  font-weight: bold;
+}
+.nowprice {
+  color: red;
+  font-size: medium;
 }
 .example-card {
   max-width: 300px;
@@ -15,4 +25,38 @@
 #card-container {
   display: flex;
   flex-flow: row wrap;
+}
+.list {
+  color: dimgrey;
+  font-weight: normal;
+}
+.brand {
+  color: #3e8acc;
+  font-weight: bold;
+}
+.ui_list {
+  list-style-type: disc;
+}
+.deslist {
+  list-style-type: circle;
+  font-weight: normal;
+  color: dimgrey;
+}
+.totdes {
+  list-style-type: square;
+  font-weight: normal;
+  color: dimgrey;
+}
+.text {
+  font-weight: normal;
+}
+.author {
+  color: #3e8acc;
+  font-weight: bolder;
+}
+
+.youlike {
+  color: orange;
+  font-weight: bolder;
+  font-size: xx-large;
 }
