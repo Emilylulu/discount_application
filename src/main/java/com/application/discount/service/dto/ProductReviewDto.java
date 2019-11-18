@@ -11,6 +11,7 @@ public class ProductReviewDto {
     private String reviewText;
     private String reviewerName;
     private String reviewTime;
+    private int rating;
 
     public ProductReviewDto(ProductReviewDto productReviewDto) {
         this.itemId = productReviewDto.getItemId();
@@ -18,6 +19,7 @@ public class ProductReviewDto {
         this.reviewText = productReviewDto.getReviewText();
         this.reviewerName = productReviewDto.getReviewerName();
         this.reviewTime = productReviewDto.getReviewTime();
+        this.rating = productReviewDto.getRating();
     }
 
 }

@@ -120,4 +120,9 @@ public class AmazonBookService {
 
 
     }
+    public int getRating (String id) {
+        return amazonReviewsRepository.findAverageRating(id);
+
+    }
+
 }

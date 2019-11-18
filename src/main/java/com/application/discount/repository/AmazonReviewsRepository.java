@@ -18,6 +18,8 @@ public interface AmazonReviewsRepository extends JpaRepository<AmazonBaselineRev
     @Query ("select c from AmazonBaselineReview c where c.itemId = :id")
 //    Set<AmazonBaselineReview> findByItemId(@Param("item") String itemId, Pageable pageable);
     Page<AmazonBaselineReview> findByItemId(@Param("id") String id, Pageable pageable);
+    @Query ("select AVG(c.rating) from AmazonBaselineReview c where c.itemId =:id")
+    int findAverageRating(@Param("id") String id);
 
 
 

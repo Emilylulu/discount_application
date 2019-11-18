@@ -8,14 +8,6 @@ import ItemDetail from 'app/item/model/item';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
-// export class NgbdRatingConfig {
-//   constructor(config: NgbRatingConfig) {
-//     // customize default values of ratings used by this component tree
-//     config.max = 5;
-//     config.readonly = true;
-//   }
-// }
-
 @Component({
   selector: 'jhi-item',
   templateUrl: './item.component.html',
@@ -35,6 +27,8 @@ export class ItemComponent implements OnInit {
   originalPrice;
   descriptonList = [];
   totalDes = [];
+  ratingScore;
+  productAddr;
 
   private routeSub: Subscription;
   constructor(private router: ActivatedRoute, private config: NgbRatingConfig, private carouse: NgbCarouselConfig) {
@@ -47,6 +41,7 @@ export class ItemComponent implements OnInit {
 
   async ngOnInit() {
     let id;
+    let score;
 
     this.routeSub = this.router.params.subscribe(params => {
       console.log(params); //log the entire params object
@@ -81,6 +76,21 @@ export class ItemComponent implements OnInit {
       console.table(`Error connecting with server: ${e}`);
     }
     this.contentSize = this.results.length;
+
+    try {
+      this.ratingScore = await axios.get(endpoints.RATING + id).then(function(response) {
+        return response.data;
+      });
+      //this.ratingScore = 5;
+    } catch (e) {
+      // TODO handle get data fail later
+      //console.table(`Error connecting with server: ${e}`);
+      console.log('error');
+    }
+    //this.ratingScore = 3;
+  }
+  onClick() {
+    window.location.href = 'https://www.amazon.com/s?k=' + this.list['id'] + '&nb_sb_noss';
   }
 
   chunks = (array, size) => {

@@ -8,7 +8,8 @@ const endpoints = {
   ALL_JEWELRY: BASE_URL + '/jewelry/all',
   ALL_PURSE: BASE_URL + '/purse/all',
   ONE_ITEM: BASE_URL + '/book/user/',
-  REVIEW: BASE_URL + '/book/user/review/'
+  REVIEW: BASE_URL + '/book/user/review/',
+  RATING: BASE_URL + '/book/user/review/rating/'
 };
 
 export default endpoints;

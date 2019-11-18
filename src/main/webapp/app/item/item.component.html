@@ -13,12 +13,20 @@
             <div class="content">
 
                 <h2><strong>{{list.title}}</strong></h2>
-                <ngb-rating [rate]="5"></ngb-rating>
-
                 <p class="price">list price: <del>${{originalPrice}}</del>
-                <br>
-                    <span class="nowprice"><em><strong>Now:${{list.price}}</strong></em><span>
+                    <br>
+                    <span class="nowprice"><em><strong>Now:${{list.price}}</strong></em></span>
                 </p>
+                <hr>
+                <ngb-rating [(rate)]="ratingScore">
+                    <ng-template let-fill="fill" let-index="index">
+                        <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                    </ng-template>
+                </ngb-rating>
+                <pre>Rate: <b>{{ratingScore}}</b></pre>
+
+
+
                 <p></p>
 
                 <div>
@@ -41,14 +49,14 @@
                 </ol>
 
 
-                <div ngbDropdown>
-                    <button class="btn btn-outline-primary" id="dropdownConfig" ngbDropdownToggle>count</button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownConfig">
-                        <button ngbDropdownItem>1</button>
-                        <button ngbDropdownItem>2</button>
-                        <button ngbDropdownItem>3</button>
-                    </div>
-                </div>
+                <!--<div ngbDropdown>-->
+                    <!--<button class="btn btn-outline-primary" id="dropdownConfig" ngbDropdownToggle>count</button>-->
+                    <!--<div ngbDropdownMenu aria-labelledby="dropdownConfig">-->
+                        <!--<button ngbDropdownItem>1</button>-->
+                        <!--<button ngbDropdownItem>2</button>-->
+                        <!--<button ngbDropdownItem>3</button>-->
+                    <!--</div>-->
+                <!--</div>-->
 
                 <!--<mat-form-field>-->
                     <!--<mat-label>Select an option</mat-label>-->
@@ -77,12 +85,19 @@
                         <i class="heart icon"></i>
                     </div>
                 </div>
-                <div class="ui animated blue button" tabindex="0">
+
+                <button (click)="onClick()" type="submit" [formTarget]="_blank" class="ui animated blue button" tabindex="0">
                     <div class="hidden content">Shop</div>
-                    <div class="visible content">
-                        <i class="shop icon"></i>
+                    <div class="visible content" >
+                        <i class="shop icon" ></i>
                     </div>
-                </div>
+                </button>
+
+
+                <!--<button (click)="onClick()" type="submit" [formTarget]="_blank" class="ui toggle button" >Vote</button>-->
+
+
+
 
 
 
@@ -167,7 +182,7 @@
 
     </ngb-tabset>
 
-
+<hr>
     <h2 class="youlike">Others you may like...</h2>
 
     <div id="card-container">

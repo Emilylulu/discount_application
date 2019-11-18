@@ -34,6 +34,10 @@ public class BookController {
     @GetMapping(path = "/user/review/{id}")
     public List<ProductReviewDto> getAllReview(@PathVariable("id") String id)
     { return amazonBookService.getReview(id);}
+    @GetMapping(path = "/user/review/rating/{id}")
+    public int getRating (@PathVariable("id") String id) {
+        return amazonBookService.getRating(id);
+    }
 //    public List<ProductReviewDto>loadReviewPage(@PathVariable("id") String id, Pageable pageable) {
 //        return amazonBookService.loadReviewPage(id, pageable);
 //    }
