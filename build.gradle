@@ -258,6 +258,13 @@ dependencies {
     testImplementation "org.hamcrest:hamcrest-library"
     testImplementation "com.h2database:h2"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+    
+    //ElasticSearch 
+    compile('org.elasticsearch.client:elasticsearch-rest-high-level-client:7.4.1')
+    compile('org.elasticsearch:elasticsearch:7.4.1')
+    implementation 'io.searchbox:jest:5.3.3'
+    implementation 'org.junit.platform:junit-platform-surefire-provider'
+    //
 }
 
 task cleanResources(type: Delete) {
