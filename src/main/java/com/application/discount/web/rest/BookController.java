@@ -1,8 +1,10 @@
 package com.application.discount.web.rest;
 
 import com.application.discount.domain.AmazonBaselineReview;
+import com.application.discount.domain.SimilarProducts;
 import com.application.discount.repository.AmazonReviewsRepository;
 import com.application.discount.service.AmazonBookService;
+import com.application.discount.service.SimilarProductsService;
 import com.application.discount.service.dto.AmazonBookDto;
 import com.application.discount.service.dto.ProductDetailDto;
 import com.application.discount.service.dto.ProductReviewDto;
@@ -19,6 +21,7 @@ import java.util.List;
 public class BookController {
     private AmazonBookService amazonBookService;
     private AmazonReviewsRepository amazonReviewsRepository;
+    private SimilarProductsService similarProductsService;
 
     public BookController(AmazonBookService amazonBookService) {
         this.amazonBookService = amazonBookService;
@@ -41,6 +44,9 @@ public class BookController {
 //    public List<ProductReviewDto>loadReviewPage(@PathVariable("id") String id, Pageable pageable) {
 //        return amazonBookService.loadReviewPage(id, pageable);
 //    }
-
+    @GetMapping(path="/user/simitems/{id}")
+    public List<ProductDetailDto> getSimilar(@PathVariable("id") String id) {
+        return amazonBookService.getSimilar(id);
+    }
 
 }

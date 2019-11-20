@@ -10,7 +10,8 @@ const endpoints = {
   ONE_ITEM: BASE_URL + '/book/user/',
   REVIEW: BASE_URL + '/book/user/review/',
   RATING: BASE_URL + '/book/user/review/rating/',
-  SEARCH: BASE_URL + '/search/'
+  SEARCH: BASE_URL + '/search/',
+  SIMITEMS: BASE_URL + '/book/user/simitems/'
 };
 
 export default endpoints;

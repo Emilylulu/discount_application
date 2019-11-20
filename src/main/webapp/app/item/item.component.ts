@@ -7,6 +7,7 @@ import ItemDetail from 'app/item/model/item';
 
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-item',
@@ -29,9 +30,16 @@ export class ItemComponent implements OnInit {
   totalDes = [];
   ratingScore;
   productAddr;
+  simiList;
+  index = 0;
 
   private routeSub: Subscription;
-  constructor(private router: ActivatedRoute, private config: NgbRatingConfig, private carouse: NgbCarouselConfig) {
+  constructor(
+    private router: ActivatedRoute,
+    private config: NgbRatingConfig,
+    private carouse: NgbCarouselConfig,
+    private router2: Router
+  ) {
     this.list = [];
     config.max = 5;
     config.readonly = true;
@@ -47,6 +55,9 @@ export class ItemComponent implements OnInit {
       console.log(params); //log the entire params object
       console.log(params['id']); //log the value of id
       id = params['id'];
+      //id = +params['id'];
+
+      //this.onSelect(id);
     });
 
     try {
@@ -87,10 +98,27 @@ export class ItemComponent implements OnInit {
       //console.table(`Error connecting with server: ${e}`);
       console.log('error');
     }
+    try {
+      const similar = await axios.get(endpoints.SIMITEMS + id);
+      this.simiList = this.chunks(similar.data, 4);
+
+      //this.contentSize = this.reviewList.size;
+      // this.reviewList = await axios.get(endpoints.REVIEW + id).then(function (response) {
+      //   return response.data;
+      //
+      // });
+    } catch (e) {
+      // TODO handle get data fail later
+      console.table(`Error connecting with server: ${e}`);
+    }
     //this.ratingScore = 3;
   }
   onClick() {
     window.location.href = 'https://www.amazon.com/s?k=' + this.list['id'] + '&nb_sb_noss';
+  }
+
+  onSelect(sitem) {
+    this.router2.navigate(['/item', sitem.id]);
   }
 
   chunks = (array, size) => {

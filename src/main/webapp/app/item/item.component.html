@@ -154,9 +154,9 @@
 
                             <div class="text">
                                 <p>{{review.reviewText}}</p>
-                                <div class="actions">
-                                    <a class="reply">Reply</a>
-                                </div>
+                                <!--<div class="actions">-->
+                                    <!--<a class="reply">Reply</a>-->
+                                <!--</div>-->
                             </div>
                         </div>
                     </div>
@@ -183,84 +183,108 @@
     </ngb-tabset>
 
 <hr>
+
+
     <h2 class="youlike">Others you may like...</h2>
 
-    <div id="card-container">
-    <mat-card class="example-card" role="group">
-        <mat-card-header>
-            <!--<div mat-card-avatar class="example-header-image"></div>-->
-            <!--<mat-card-title>{{list.title}}</mat-card-title>-->
-            <!--<mat-card-subtitle>{{list.price}}</mat-card-subtitle>-->
-        </mat-card-header>
-        <img mat-card-lg-image src={{list.imgUrl}} alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                <!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
-                <!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
-                <!--bred for hunting.-->
-                <mat-card-title>{{list.title}}</mat-card-title>
-                <mat-card-subtitle>{{list.price}}</mat-card-subtitle>
 
-            </p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-        </mat-card-actions>
+    <div class="ui four column relaxed grid "  style="margin-left: 15px" *ngFor="let simitems of simiList| slice:5:6; let i=index">
+        <div class="row ">
+            <div class="column ui segment"  *ngFor="let sitem of simitems;"  >
+
+                <img  src={{sitem.imgUrl}} (click) = "onSelect(sitem)"  class="fixImageSize"/>
+                <p>{{sitem.title}}</p>
 
 
-    </mat-card>
-
-        <mat-card class="example-card" role="group">
-            <mat-card-header>
-                <!--<div mat-card-avatar class="example-header-image"></div>-->
-                <!--<mat-card-title>{{list.title}}</mat-card-title>-->
-                <!--<mat-card-subtitle>{{list.price}}</mat-card-subtitle>-->
-            </mat-card-header>
-            <img mat-card-lg-image src={{list.imgUrl}} alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    <!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
-                    <!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
-                    <!--bred for hunting.-->
-                    <mat-card-title>{{list.title}}</mat-card-title>
-                    <mat-card-subtitle>{{list.price}}</mat-card-subtitle>
-
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
-            </mat-card-actions>
+            </div>
 
 
-        </mat-card>
-
-        <mat-card class="example-card" role="group">
-            <mat-card-header>
-                <!--<div mat-card-avatar class="example-header-image"></div>-->
-                <!--<mat-card-title>{{list.title}}</mat-card-title>-->
-                <!--<mat-card-subtitle>{{list.price}}</mat-card-subtitle>-->
-            </mat-card-header>
-            <img mat-card-lg-image src={{list.imgUrl}} alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    <!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
-                    <!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
-                    <!--bred for hunting.-->
-                    <mat-card-title>{{list.title}}</mat-card-title>
-                    <mat-card-subtitle>{{list.price}}</mat-card-subtitle>
-
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
-            </mat-card-actions>
+        </div>
 
 
-        </mat-card>
     </div>
+
+
+    <!--<div class="card-container" *ngFor="let simiPros of simiList;">-->
+        <!--<div *ngFor="let simi of simiPros;">-->
+    <!--<mat-card class="example-card" role="group" >-->
+
+
+        <!--<mat-card-header>-->
+            <!--&lt;!&ndash;<div mat-card-avatar class="example-header-image"></div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-card-title>{{list.title}}</mat-card-title>&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-card-subtitle>{{list.price}}</mat-card-subtitle>&ndash;&gt;-->
+        <!--</mat-card-header>-->
+        <!--<img mat-card-lg-image src={{simi.imgUrl}} alt="Photo of a Shiba Inu">-->
+        <!--<mat-card-content>-->
+            <!--<p>-->
+                <!--&lt;!&ndash;The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.&ndash;&gt;-->
+                <!--&lt;!&ndash;A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally&ndash;&gt;-->
+                <!--&lt;!&ndash;bred for hunting.&ndash;&gt;-->
+                <!--<mat-card-title>{{simi.title}}</mat-card-title>-->
+                <!--<mat-card-subtitle>{{simi.price}}</mat-card-subtitle>-->
+
+            <!--</p>-->
+        <!--</mat-card-content>-->
+        <!--<mat-card-actions>-->
+            <!--<button mat-button>LIKE</button>-->
+            <!--<button mat-button>SHARE</button>-->
+        <!--</mat-card-actions>-->
+
+
+    <!--</mat-card>-->
+
+        <!--&lt;!&ndash;<mat-card class="example-card" role="group">&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-card-header>&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<div mat-card-avatar class="example-header-image"></div>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<mat-card-title>{{list.title}}</mat-card-title>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<mat-card-subtitle>{{list.price}}</mat-card-subtitle>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-card-header>&ndash;&gt;-->
+            <!--&lt;!&ndash;<img mat-card-lg-image src={{list.imgUrl}} alt="Photo of a Shiba Inu">&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-card-content>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;bred for hunting.&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;<mat-card-title>{{list.title}}</mat-card-title>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<mat-card-subtitle>{{list.price}}</mat-card-subtitle>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-card-content>&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-card-actions>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button mat-button>LIKE</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button mat-button>SHARE</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-card-actions>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;</mat-card>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<mat-card class="example-card" role="group">&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-card-header>&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<div mat-card-avatar class="example-header-image"></div>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<mat-card-title>{{list.title}}</mat-card-title>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<mat-card-subtitle>{{list.price}}</mat-card-subtitle>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-card-header>&ndash;&gt;-->
+            <!--&lt;!&ndash;<img mat-card-lg-image src={{list.imgUrl}} alt="Photo of a Shiba Inu">&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-card-content>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;bred for hunting.&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;<mat-card-title>{{list.title}}</mat-card-title>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<mat-card-subtitle>{{list.price}}</mat-card-subtitle>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-card-content>&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-card-actions>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button mat-button>LIKE</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button mat-button>SHARE</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-card-actions>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;</mat-card>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
 
 
 

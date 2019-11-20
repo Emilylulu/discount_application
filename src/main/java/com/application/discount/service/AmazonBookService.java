@@ -3,10 +3,12 @@ package com.application.discount.service;
 import com.application.discount.domain.AmazonBaseline;
 import com.application.discount.domain.AmazonBaselineCategory;
 import com.application.discount.domain.AmazonBaselineReview;
+import com.application.discount.domain.SimilarProducts;
 import com.application.discount.exception.ItemNotFoundException;
 import com.application.discount.repository.AmazonBaselineCategoryRepository;
 import com.application.discount.repository.AmazonBaselineRepository;
 import com.application.discount.repository.AmazonReviewsRepository;
+import com.application.discount.repository.SimilarProductsRespository;
 import com.application.discount.service.dto.AmazonBookDto;
 import com.application.discount.service.dto.ProductDetailDto;
 import com.application.discount.service.dto.ProductReviewDto;
@@ -35,6 +37,8 @@ public class AmazonBookService {
     private AmazonBaselineCategoryRepository amazonBaselineCategoryRepository;
     @Autowired
     private AmazonReviewsRepository amazonReviewsRepository;
+    @Autowired
+    private SimilarProductsRespository similarProductsRespository;
 
     public List<AmazonBookDto> getAllItems() {
         Set<String> bookCategoryIds = amazonBaselineCategoryRepository.findAllByCategory("Books")
@@ -124,5 +128,22 @@ public class AmazonBookService {
         return amazonReviewsRepository.findAverageRating(id);
 
     }
+    public List<ProductDetailDto> getSimilar(String id) {
+        Set<String> simiIds = similarProductsRespository.findAllById(id)
+            .stream()
+            .map(SimilarProducts::getRecId)
+            .collect(Collectors.toSet());
+        List<AmazonBaseline> allRecItems = amazonBaselineRepository.findAll();
+        return allRecItems.stream()
+            .filter(item -> simiIds.contains(item.getId()))
+            .map(simiPro -> {
+                ProductDetailDto dto = new ProductDetailDto();
+                BeanUtils.copyProperties(simiPro, dto);
+                return dto;
+            })
+            .collect(Collectors.toList());
+
+    }
+
 
 }
