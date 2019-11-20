@@ -9,7 +9,8 @@ const endpoints = {
   ALL_PURSE: BASE_URL + '/purse/all',
   ONE_ITEM: BASE_URL + '/book/user/',
   REVIEW: BASE_URL + '/book/user/review/',
-  RATING: BASE_URL + '/book/user/review/rating/'
+  RATING: BASE_URL + '/book/user/review/rating/',
+  SEARCH: BASE_URL + '/search/'
 };
 
 export default endpoints;

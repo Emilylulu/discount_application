@@ -265,6 +265,8 @@ dependencies {
     implementation 'io.searchbox:jest:5.3.3'
     implementation 'org.junit.platform:junit-platform-surefire-provider'
     //
+    compileOnly 'javax.interceptor:javax.interceptor-api:1.+'
+
 }
 
 task cleanResources(type: Delete) {

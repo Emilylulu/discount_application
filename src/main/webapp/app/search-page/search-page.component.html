@@ -1,2 +1,15 @@
-<p>search-page works!</p>
-<p>{{searchKey}}</p>
+<!--<p>search-page works!</p>-->
+<!--<p>{{searchKey}}</p>-->
+
+<div class="ui four column relaxed grid "  style="margin-left: 15px" *ngFor="let searchChunk of searchChunks;">
+    <div class="row ">
+        <div class="column ui segment"  *ngFor="let searchRes of searchChunk;">
+
+            <img src={{searchRes.imgUrl}} (click) = "onSelect(searchRes)" class="fixImageSize"/>
+            <p>{{searchRes.title}}</p>
+
+        </div>
+
+    </div>
+
+</div>
