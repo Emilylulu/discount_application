@@ -1,9 +1,12 @@
 package com.application.discount.web.rest;
 
+import com.application.discount.domain.User;
 import com.application.discount.service.AmazonJewelryService;
+import com.application.discount.service.UserService;
 import com.application.discount.service.dto.AmazonJewelryDto;
 import com.application.discount.service.dto.ProductDetailDto;
 import com.application.discount.service.dto.ProductReviewDto;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +24,7 @@ public class JewelryController {
     public List<AmazonJewelryDto> getAllItems() {
         return amazonJewelryService.getAllItems();
     }
+
     @GetMapping(path = "/user/{id}")
     public ProductDetailDto getOneItem(@PathVariable("id") String id) {
         return amazonJewelryService.getOneItem(id);

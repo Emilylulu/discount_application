@@ -1,14 +1,11 @@
 package com.application.discount.service;
 
 import com.application.discount.domain.AmazonBaseline;
-import com.application.discount.domain.AmazonBaselineCategory;
 import com.application.discount.domain.AmazonBaselineRecommendation;
-import com.application.discount.exception.ItemNotFoundException;
-import com.application.discount.repository.AmazonBaselineCategoryRepository;
 import com.application.discount.repository.AmazonBaselineRecommendationRepository;
 import com.application.discount.repository.AmazonBaselineRepository;
+import com.application.discount.service.dto.AmazonBaselineRecommendationDto;
 import com.application.discount.service.dto.AmazonJewelryDto;
-import com.application.discount.service.dto.ProductDetailDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,18 +17,16 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class AmazonJewelryService {
-    @Autowired
-    private AmazonBaselineRepository amazonBaselineRepository;
-    @Autowired
-    private AmazonBaselineCategoryRepository amazonBaselineCategoryRepository;
+public class AmazonMayLikeService {
     @Autowired
     private AmazonBaselineRecommendationRepository amazonBaselineRecommendationRepository;
+    @Autowired
+    private AmazonBaselineRepository amazonBaselineRepository;
 
-    public List<AmazonJewelryDto> getAllItems() {
-        Set<String> jewCategoryIds = amazonBaselineCategoryRepository.findAllByCategory("Jewelry")
+    public List<AmazonJewelryDto> getRecommendationItems(String id){
+        Set<String> jewCategoryIds = amazonBaselineRecommendationRepository.findAllByUserId(id)
             .stream()
-            .map(AmazonBaselineCategory::getItemId)
+            .map(AmazonBaselineRecommendation::getItemId)
             .collect(Collectors.toSet());
 
         List<AmazonBaseline> allItems = amazonBaselineRepository.findAll();
@@ -44,15 +39,4 @@ public class AmazonJewelryService {
             })
             .collect(Collectors.toList());
     }
-    public ProductDetailDto getOneItem(String id) {
-
-        AmazonBaseline oneItem = amazonBaselineRepository.findById(id)
-            .orElseThrow(() -> new ItemNotFoundException(id));
-        ProductDetailDto dto = new ProductDetailDto();
-        BeanUtils.copyProperties(oneItem, dto);
-        return dto;
-    }
-
-
 }
-
