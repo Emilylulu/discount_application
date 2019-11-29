@@ -1,6 +1,8 @@
 package com.application.discount.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
