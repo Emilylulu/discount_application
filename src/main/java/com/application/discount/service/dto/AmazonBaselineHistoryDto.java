@@ -8,4 +8,6 @@ import lombok.NoArgsConstructor;
 public class AmazonBaselineHistoryDto {
     private String itemId;
     private String userId;
+    private String purchaseTime;
+    private int purchaseNumber;
 }

@@ -133,7 +133,7 @@ jhipster:
   mail:
     from: Discount_Application@localhost
   swagger:
-    default-include-pattern: /api/.*
+    default-include-pattern: /.*
     title: Discount_Application API
     description: Discount_Application API documentation
     version: 0.0.1

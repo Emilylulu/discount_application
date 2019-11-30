@@ -137,6 +137,7 @@ public class WebConfigurer implements ServletContextInitializer, WebServerFactor
             source.registerCorsConfiguration("/v2/api-docs", config);
             source.registerCorsConfiguration("/entities/mayLike/all", config);
             source.registerCorsConfiguration("/entities/history/all", config);
+            source.registerCorsConfiguration("/purchaseHistory/add/*", config);
         }
         return new CorsFilter(source);
     }
