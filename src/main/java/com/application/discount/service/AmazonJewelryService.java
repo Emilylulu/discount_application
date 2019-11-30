@@ -2,7 +2,6 @@ package com.application.discount.service;
 
 import com.application.discount.domain.AmazonBaseline;
 import com.application.discount.domain.AmazonBaselineCategory;
-import com.application.discount.domain.AmazonBaselineRecommendation;
 import com.application.discount.exception.ItemNotFoundException;
 import com.application.discount.repository.AmazonBaselineCategoryRepository;
 import com.application.discount.repository.AmazonBaselineRecommendationRepository;

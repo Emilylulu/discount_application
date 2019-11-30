@@ -15,11 +15,11 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping(path = "/entities/mayLike")
-public class EntitiesController {
+public class MayLikeController {
     private UserService userService;
     private AmazonMayLikeService amazonMayLikeService;
 
-    public EntitiesController(UserService userService, AmazonMayLikeService amazonMayLikeService){
+    public MayLikeController(UserService userService, AmazonMayLikeService amazonMayLikeService){
         this.userService = userService;
         this.amazonMayLikeService = amazonMayLikeService;
     }

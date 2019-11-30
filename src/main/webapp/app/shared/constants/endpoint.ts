@@ -11,8 +11,8 @@ const endpoints = {
   REVIEW: BASE_URL + '/book/user/review/',
   RATING: BASE_URL + '/book/user/review/rating/',
   SEARCH: BASE_URL + '/search/',
-  ONE_USER: BASE_URL + '/jewelry/entities/user',
   MAY_LIKE: BASE_URL + '/entities/mayLike/all',
+  History: BASE_URL + '/entities/history/all',
   SIMITEMS: BASE_URL + '/book/user/simitems/'
 };
 

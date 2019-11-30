@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MayLikeComponent } from './may-like/may-like.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   imports: [
@@ -11,9 +12,13 @@ import { MayLikeComponent } from './may-like/may-like.component';
       {
         path: 'entities/mayLike',
         component: MayLikeComponent
+      },
+      {
+        path: 'entities/history',
+        component: HistoryComponent
       }
     ])
   ],
-  declarations: [MayLikeComponent]
+  declarations: [MayLikeComponent, HistoryComponent]
 })
 export class DiscountApplicationEntityModule {}

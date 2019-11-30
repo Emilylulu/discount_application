@@ -9,12 +9,12 @@ import { Account } from 'app/core/user/account.model';
 import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
-  selector: 'jhi-may-like',
-  templateUrl: './may-like.component.html',
-  styleUrls: ['./may-like.component.scss']
+  selector: 'jhi-history',
+  templateUrl: './history.component.html',
+  styleUrls: ['./history.component.scss']
 })
-export class MayLikeComponent implements OnInit {
-  itemChunks;
+export class HistoryComponent implements OnInit {
+  historyChunks;
   account: Account;
   authSubscription: Subscription;
 
@@ -31,10 +31,10 @@ export class MayLikeComponent implements OnInit {
     });
     this.registerAuthenticationSuccess();
     try {
-      const data = await axios.get(endpoints.MAY_LIKE, { withCredentials: true });
+      const data = await axios.get(endpoints.History, { withCredentials: true });
 
       console.table(data.data);
-      this.itemChunks = this.chunks(data.data, 4);
+      this.historyChunks = this.chunks(data.data, 4);
     } catch (e) {
       // TODO handle get data fail later
       //console.log(`Error connecting with server: ${e}`);
