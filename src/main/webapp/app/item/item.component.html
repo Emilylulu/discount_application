@@ -58,7 +58,7 @@
                 </div>
 
 
-                <div class="ui animated button" tabindex="0">
+                <div *ngSwitchCase="true" (click)="onClickSave()" class="ui animated button" tabindex="0">
                     <div class="hidden content">Save</div>
                     <div class="visible content">
                         <i class="heart icon"></i>

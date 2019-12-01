@@ -120,6 +120,11 @@ export class ItemComponent implements OnInit {
     axios.post(endpoints.ADD_ITEM + id, { id }, { withCredentials: true });
   }
 
+  onClickSave() {
+    const id = this.list['id'];
+    axios.post(endpoints.ADD_SAVE + id, { id }, { withCredentials: true });
+  }
+
   onSelect(sitem) {
     this.router2.navigate(['/item', sitem.id]);
   }

@@ -9,6 +9,8 @@ const endpoints = {
   ALL_PURSE: BASE_URL + '/purse/all',
   ONE_ITEM: BASE_URL + '/book/user/',
   ADD_ITEM: BASE_URL + '/purchaseHistory/add/',
+  ADD_SAVE: BASE_URL + '/entities/save/add/',
+  ALL_SAVE: BASE_URL + '/entities/save/all',
   REVIEW: BASE_URL + '/book/user/review/',
   RATING: BASE_URL + '/book/user/review/rating/',
   SEARCH: BASE_URL + '/search/',

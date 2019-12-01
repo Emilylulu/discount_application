@@ -71,6 +71,12 @@
                             <span>History</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="entities/save" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="tasks" fixedWidth="true"></fa-icon>
+                            <span>Save</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">

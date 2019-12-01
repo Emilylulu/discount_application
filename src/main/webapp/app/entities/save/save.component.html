@@ -1,0 +1,12 @@
+<div class="ui four column relaxed grid "  style="margin-left: 15px" *ngFor="let items of itemChunks;">
+    <div class="row ">
+        <div class="column ui segment"  *ngFor="let item of items;">
+
+            <img src={{item.imgUrl}} (click) = "onSelect(item)" class="fixImageSize"/>
+            <p>{{item.title}}</p>
+
+        </div>
+
+    </div>
+
+</div>
