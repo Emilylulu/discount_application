@@ -8,6 +8,7 @@ const endpoints = {
   ALL_JEWELRY: BASE_URL + '/jewelry/all',
   ALL_PURSE: BASE_URL + '/purse/all',
   ONE_ITEM: BASE_URL + '/book/user/',
+  ADD_ITEM: BASE_URL + '/purchaseHistory/add/',
   REVIEW: BASE_URL + '/book/user/review/',
   RATING: BASE_URL + '/book/user/review/rating/',
   SEARCH: BASE_URL + '/search/',

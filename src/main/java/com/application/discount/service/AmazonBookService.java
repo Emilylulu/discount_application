@@ -95,22 +95,6 @@ public class AmazonBookService {
         return reviewPageList;
 
 
-//        int totalElements = (int) reviewPage.getTotalElements();
-//        return new PageImpl<ProductReviewDto>(reviewPage
-//        .stream()
-////        .map(review -> new ProductReviewDto(
-////            review.getItemId(),
-////            review.getReviewerID(),
-////            review.getReviewerName(),
-////            review.getReviewText(),
-////            review.getReviewTime()
-////            ))
-//            .map()
-////            .collect(Collectors.toList(), pageable, totalElements);
-//            .collect(Collectors.toList(), pageable, totalElements);
-
-        //return reviewDto;
-
 
     }
     private ProductReviewDto convertToReviewDto(AmazonBaselineReview baselineReview) {

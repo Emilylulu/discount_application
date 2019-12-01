@@ -8,6 +8,9 @@ import ItemDetail from 'app/item/model/item';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { Account } from 'app/core/user/account.model';
+import { JhiEventManager } from 'ng-jhipster';
+import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
   selector: 'jhi-item',
@@ -32,13 +35,17 @@ export class ItemComponent implements OnInit {
   productAddr;
   simiList;
   index = 0;
+  account: Account;
+  authSubscription: Subscription;
 
   private routeSub: Subscription;
   constructor(
     private router: ActivatedRoute,
     private config: NgbRatingConfig,
     private carouse: NgbCarouselConfig,
-    private router2: Router
+    private router2: Router,
+    private accountService: AccountService,
+    private eventManager: JhiEventManager
   ) {
     this.list = [];
     config.max = 5;
@@ -50,14 +57,16 @@ export class ItemComponent implements OnInit {
   async ngOnInit() {
     let id;
     let score;
-
+    this.accountService.identity().subscribe((account: Account) => {
+      this.account = account;
+    });
     this.routeSub = this.router.params.subscribe(params => {
-      console.log(params); //log the entire params object
-      console.log(params['id']); //log the value of id
+      console.log(params); // log the entire params object
+      console.log(params['id']); // log the value of id
       id = params['id'];
-      //id = +params['id'];
+      // id = +params['id'];
 
-      //this.onSelect(id);
+      // this.onSelect(id);
     });
 
     try {
@@ -77,7 +86,7 @@ export class ItemComponent implements OnInit {
       const review = await axios.get(endpoints.REVIEW + id);
       this.reviewList = this.chunks(review.data, 1);
 
-      //this.contentSize = this.reviewList.size;
+      // this.contentSize = this.reviewList.size;
       // this.reviewList = await axios.get(endpoints.REVIEW + id).then(function (response) {
       //   return response.data;
       //
@@ -92,35 +101,40 @@ export class ItemComponent implements OnInit {
       this.ratingScore = await axios.get(endpoints.RATING + id).then(function(response) {
         return response.data;
       });
-      //this.ratingScore = 5;
     } catch (e) {
       // TODO handle get data fail later
-      //console.table(`Error connecting with server: ${e}`);
       console.log('error');
     }
     try {
       const similar = await axios.get(endpoints.SIMITEMS + id);
       this.simiList = this.chunks(similar.data, 4);
-
-      //this.contentSize = this.reviewList.size;
-      // this.reviewList = await axios.get(endpoints.REVIEW + id).then(function (response) {
-      //   return response.data;
-      //
-      // });
     } catch (e) {
       // TODO handle get data fail later
       console.table(`Error connecting with server: ${e}`);
     }
-    //this.ratingScore = 3;
+    // this.ratingScore = 3;
   }
   onClick() {
-    window.location.href = 'https://www.amazon.com/s?k=' + this.list['id'] + '&nb_sb_noss';
+    // window.location.href = 'https://www.amazon.com/s?k=' + this.list['id'] + '&nb_sb_noss';
+    const id = this.list['id'];
+    axios.post(endpoints.ADD_ITEM + id, { id }, { withCredentials: true });
   }
 
   onSelect(sitem) {
     this.router2.navigate(['/item', sitem.id]);
   }
 
+  isAuthenticated() {
+    return this.accountService.isAuthenticated();
+  }
+
+  registerAuthenticationSuccess() {
+    this.authSubscription = this.eventManager.subscribe('authenticationSuccess', message => {
+      this.accountService.identity().subscribe(account => {
+        this.account = account;
+      });
+    });
+  }
   chunks = (array, size) => {
     if (array === undefined) {
       return array;
